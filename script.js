@@ -335,7 +335,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
         feedback: document.getElementById("feedback").value
     };
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz57RzfZMIMlwjqUEhzdfvTSXsLa8GlJoLqcjtgF7XjvcubZ9p-Mvycdabpfq8FgXzj-g/exec"
+    const scriptURL = "https://script.google.com/macros/s/AKfycby1xIL5anwWBvBquBtE676YgM3Jzf-T1ddbaihaUn4ASc8nOsd3k_iMBl2ek15BTMXI2Q/exec"
 
     try {
         const res = await fetch(scriptURL, {
