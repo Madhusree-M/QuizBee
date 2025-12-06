@@ -1,69 +1,44 @@
-console.log("hello")
-
-// const questions = [
-//     {
-//         text: "Which keyword is used to declare a constant in JavaScript?",
-//         options: ["var", "let", "const", "static"],
-//         correctIndex: 2
-//     },
-//     {
-//         text: "Which method is used to log to the console?",
-//         options: ["print()", "log()", "console()", "console.log()"],
-//         correctIndex: 3
-//     },
-//     {
-//         text: "Which of these is NOT a JavaScript data type?",
-//         options: ["number", "string", "boolean", "character"],
-//         correctIndex: 3
-//     },
-// ]
-
-// const questions = [
-//     {
-//         text: "Which keyword is used to declare a constant in C?",
-//         options: ["final", "const", "static", "define"],
-//         correctIndex: 1
-//     },
-//     {
-//         text: "Which data type is used to store a single character in C?",
-//         options: ["char", "string", "int", "float"],
-//         correctIndex: 0
-//     },
-//     {
-//         text: "Which symbol is used for the logical AND operator in C?",
-//         options: ["&&", "||", "&", "|"],
-//         correctIndex: 0
-//     },
-//     {
-//         text: "Which function is used to print output to the console in C?",
-//         options: ["printf()", "cout", "console.log()", "echo()"],
-//         correctIndex: 0
-//     },
-//     {
-//         text: "What is the correct way to declare an integer variable 'x' in C?",
-//         options: ["int x;", "integer x;", "var x;", "num x;"],
-//         correctIndex: 0
-//     },
-//     {
-//         text: "Which of the following is NOT a valid C loop?",
-//         options: ["for", "while", "repeat", "do-while"],
-//         correctIndex: 2
-//     },
-//     {
-//         text: "Which operator is used to get the address of a variable in C?",
-//         options: ["*", "&", "%", "#"],
-//         correctIndex: 1
-//     },
-//     {
-//         text: "What is the size of 'int' data type in standard C on most systems?",
-//         options: ["2 bytes", "4 bytes", "8 bytes", "1 byte"],
-//         correctIndex: 1
-//     }
-// ];
-
-
 const questions = [
-    
+    {
+        text: "Which of the following is the correct way to declare an array of 5 integers in C?",
+        options: ["int arr[5];", "int arr;", "array arr[5];", "int arr(5);"],
+        correctIndex: 0
+    },
+    {
+        text: "What will be the output of this code?\n\nint a = 10, b = 3;\nprintf(\"%d\", a & b);",
+        options: ["1", "2", "3", "0"],
+        correctIndex: 0
+    },
+    {
+        text: "Which of these is the correct syntax to create a pointer to an integer in C?",
+        options: ["int *ptr;", "ptr int;", "int &ptr;", "pointer int;"],
+        correctIndex: 0
+    },
+    {
+        text: "What is the value of the expression '5 / 2 * 2' in C?",
+        options: ["4", "5", "2", "Undefined"],
+        correctIndex: 0
+    },
+    {
+        text: "What will be the output?\n\nint x = 10;\nprintf(\"%d\", x == 10 == 1);",
+        options: ["1", "0", "Compiler error", "Undefined"],
+        correctIndex: 0
+    },
+    {
+        text: "Which function can be used to dynamically allocate memory in C?",
+        options: ["malloc()", "alloc()", "new()", "memalloc()"],
+        correctIndex: 0
+    },
+    {
+        text: "What will this print?\n\nchar str[] = \"Hello\";\nprintf(\"%c\", *str);",
+        options: ["H", "e", "Hello", "Error"],
+        correctIndex: 0
+    },
+    {
+        text: "What is the output of the following?\n\nprintf(\"%d\", 'A');",
+        options: ["65", "'A'", "0", "Error"],
+        correctIndex: 0
+    },
     {
         text: "Which of these is true about the 'break' statement in C?",
         options: [
@@ -360,7 +335,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
         feedback: document.getElementById("feedback").value
     };
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxurH9AyGZsunN3XvYtJrzRbC1WKrBf8nW-X7nR6vD5eaw8pjBDsXhSNx-BBmCLZ8df5A/exec"
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz57RzfZMIMlwjqUEhzdfvTSXsLa8GlJoLqcjtgF7XjvcubZ9p-Mvycdabpfq8FgXzj-g/exec"
 
     try {
         const res = await fetch(scriptURL, {
