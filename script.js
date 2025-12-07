@@ -219,7 +219,7 @@ function selectOption(opt)
 function startTimer() {
             
     document.getElementById("timer").classList.remove("animate-ping","text-red-600");
-    timeLeft = 7;
+    timeLeft = 20;
     document.getElementById("timer").textContent = timeLeft;
 
     timer = setInterval(() => {
