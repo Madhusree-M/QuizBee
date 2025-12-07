@@ -1,11 +1,60 @@
 const questions = [
     {
+        text: "Which of the following is the correct way to declare an array of 5 integers in C?",
+        options: ["array arr[5];", "int arr(5);", "int arr;", "int arr[5];"],
+        correctIndex: 3
+    },
+    {
+        text: "What will be the output of this code?\n\nint a = 10, b = 3;\nprintf(\"%d\", a & b);",
+        options: ["2", "1", "3", "0"],
+        correctIndex: 1
+    },
+    {
+        text: "Which of these is the correct syntax to create a pointer to an integer in C?",
+        options: ["int *ptr;", "pointer int;", "int &ptr;", "ptr int;"],
+        correctIndex: 0
+    },
+    {
+        text: "What is the value of the expression '5 / 2 * 2' in C?",
+        options: ["5", "4", "2", "Undefined"],
+        correctIndex: 1
+    },
+    {
         text: "Which operator is used to access the value at the address stored in a pointer?",
         options: ["&", "*", "->", "%"],
         correctIndex: 1
+    },
+    {
+        text: "What will be the output?\n\nint x = 10;\nprintf(\"%d\", x == 10 == 1);",
+        options: ["0", "1", "Compiler error", "Undefined"],
+        correctIndex: 0
+    },
+    {
+        text: "Which function can be used to dynamically allocate memory in C?",
+        options: ["new()", "malloc()", "memalloc()", "alloc()"],
+        correctIndex: 1
+    },
+    {
+        text: "What will this print?\n\nchar str[] = \"Hello\";\nprintf(\"%c\", *str);",
+        options: ["e", "Error", "Hello", "H"],
+        correctIndex: 3
+    },
+    {
+        text: "What is the output of the following?\n\nprintf(\"%d\", 'A');",
+        options: ["'A'", "65", "0", "Error"],
+        correctIndex: 1
+    },
+    {
+        text: "What is the difference between '++i' and 'i++' in C?",
+        options: [
+            "No difference",
+            "'i++' decrements instead of increments",
+            "'++i' increments before using the value, 'i++' increments after using the value",
+            "'++i' is only for floats"
+        ],
+        correctIndex: 2
     }
-]
-
+];
 
 //Declaration
 
