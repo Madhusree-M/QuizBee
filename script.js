@@ -1,63 +1,8 @@
 const questions = [
     {
-        text: "Which of the following is the correct way to declare an array of 5 integers in C?",
-        options: ["int arr[5];", "int arr;", "array arr[5];", "int arr(5);"],
-        correctIndex: 0
-    },
-    {
-        text: "What will be the output of this code?\n\nint a = 10, b = 3;\nprintf(\"%d\", a & b);",
-        options: ["1", "2", "3", "0"],
-        correctIndex: 0
-    },
-    {
-        text: "Which of these is the correct syntax to create a pointer to an integer in C?",
-        options: ["int *ptr;", "ptr int;", "int &ptr;", "pointer int;"],
-        correctIndex: 0
-    },
-    {
-        text: "What is the value of the expression '5 / 2 * 2' in C?",
-        options: ["4", "5", "2", "Undefined"],
-        correctIndex: 0
-    },
-    {
-        text: "What will be the output?\n\nint x = 10;\nprintf(\"%d\", x == 10 == 1);",
-        options: ["1", "0", "Compiler error", "Undefined"],
-        correctIndex: 0
-    },
-    {
-        text: "Which function can be used to dynamically allocate memory in C?",
-        options: ["malloc()", "alloc()", "new()", "memalloc()"],
-        correctIndex: 0
-    },
-    {
-        text: "What will this print?\n\nchar str[] = \"Hello\";\nprintf(\"%c\", *str);",
-        options: ["H", "e", "Hello", "Error"],
-        correctIndex: 0
-    },
-    {
-        text: "What is the output of the following?\n\nprintf(\"%d\", 'A');",
-        options: ["65", "'A'", "0", "Error"],
-        correctIndex: 0
-    },
-    {
-        text: "Which of these is true about the 'break' statement in C?",
-        options: [
-            "Exits the current loop or switch statement immediately",
-            "Skips the next iteration",
-            "Terminates the program",
-            "Pauses the program"
-        ],
-        correctIndex: 0
-    },
-    {
-        text: "What is the difference between '++i' and 'i++' in C?",
-        options: [
-            "'++i' increments before using the value, 'i++' increments after using the value",
-            "No difference",
-            "'i++' decrements instead of increments",
-            "'++i' is only for floats"
-        ],
-        correctIndex: 0
+        text: "Which operator is used to access the value at the address stored in a pointer?",
+        options: ["&", "*", "->", "%"],
+        correctIndex: 1
     }
 ]
 
@@ -225,7 +170,7 @@ function selectOption(opt)
 function startTimer() {
             
     document.getElementById("timer").classList.remove("animate-ping","text-red-600");
-    timeLeft = 20;
+    timeLeft = 7;
     document.getElementById("timer").textContent = timeLeft;
 
     timer = setInterval(() => {
@@ -240,11 +185,14 @@ function startTimer() {
         // If time ends → auto-next
         if (timeLeft === 0) {
             clearInterval(timer);
-            selectedOption = null
-            selectedAnswers[QuestionIndex] = undefined; // unanswered
+            document.getElementById("ping").classList.add("hidden");
+            if(selectedOption === undefined)
+            {
+                selectedOption = null
+                selectedAnswers[QuestionIndex] = undefined; // unanswered
 
-            errorEl.innerText = " Unanswered"
-            
+                errorEl.innerText = " Unanswered"
+            }
             setTimeout(() => {
                 nextBtnEl.click();
             }, 1300);
@@ -264,7 +212,7 @@ function showReview() {
     reviewBoxEl = document.getElementById("review-box");
     reviewBoxEl.classList.remove("hidden");
 
-    let container = document.getElementById("review-container");
+    let container = document.getElementById("review-questions");
     container.innerHTML = ""; // reset
 
     questions.forEach((q, index) => {
@@ -323,36 +271,28 @@ function showReview() {
 
         container.appendChild(block);
     });
-}
+    // --- Attach feedback listener here after reviewBox is visible ---
+    const reviewForm = document.querySelector("#reviewPageForm");
+    const reviewResult = document.querySelector("#reviewPageResult");
 
+    reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+        const formData = new FormData(reviewForm);
 
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        feedback: document.getElementById("feedback").value
-    };
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycby1xIL5anwWBvBquBtE676YgM3Jzf-T1ddbaihaUn4ASc8nOsd3k_iMBl2ek15BTMXI2Q/exec"
-
-    try {
-        const res = await fetch(scriptURL, {
+        const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" }
+            body: formData
         });
 
-        const result = await res.json();
+        const data = await response.json();
 
-        if (result.result === "success") {
-            document.getElementById("msg").classList.remove("hidden");
-            document.getElementById("feedbackForm").reset();
+        if (data.success) {
+            reviewResult.textContent = "Thank you! Your feedback means a lot ❤️";
+            reviewForm.reset();
         } else {
-            alert("Error submitting feedback: " + result.error);
+            reviewResult.textContent = "Oops! Something went wrong ❌";
         }
-    } catch (err) {
-        alert("Failed to submit feedback. Check your Web App URL and deployment settings.");
-    }
-});
+    });
+
+}
