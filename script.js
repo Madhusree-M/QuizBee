@@ -27,7 +27,7 @@ const questions = [
     {
         text: "What will be the output?\n\nint x = 10;\nprintf(\"%d\", x == 10 == 1);",
         options: ["0", "1", "Compiler error", "Undefined"],
-        correctIndex: 0
+        correctIndex: 1
     },
     {
         text: "Which function can be used to dynamically allocate memory in C?",
