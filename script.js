@@ -291,7 +291,7 @@ function showReview() {
             reviewResult.textContent = "Thank you! Your feedback means a lot ❤️";
             reviewForm.reset();
         } else {
-            reviewResult.textContent = "Oops! Something went wrong ❌";
+            reviewResult.textContent = "Oops! Something went wrong";
         }
     });
 
