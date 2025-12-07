@@ -7,7 +7,7 @@ const questions = [
     {
         text: "What will be the output of this code?\n\nint a = 10, b = 3;\nprintf(\"%d\", a & b);",
         options: ["2", "1", "3", "0"],
-        correctIndex: 1
+        correctIndex: 0
     },
     {
         text: "Which of these is the correct syntax to create a pointer to an integer in C?",
