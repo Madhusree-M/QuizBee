@@ -218,7 +218,6 @@ function selectOption(opt)
 
 function startTimer() {
             
-    document.getElementById("timer").classList.remove("animate-ping","text-red-600");
     timeLeft = 20;
     document.getElementById("timer").textContent = timeLeft;
 
@@ -229,6 +228,9 @@ function startTimer() {
         if (timeLeft <= 5) {
             document.getElementById("timer").classList.add("text-red-600");
             document.getElementById("ping").classList.remove("hidden");
+        }
+        else{
+            document.getElementById("timer").classList.remove("animate-ping","text-red-600");
         }
 
         // If time ends → auto-next
